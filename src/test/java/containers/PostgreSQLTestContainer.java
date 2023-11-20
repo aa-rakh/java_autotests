@@ -31,15 +31,15 @@ public class PostgreSQLTestContainer extends PostgreSQLContainer<PostgreSQLTestC
         return LazyPostgresDBPortfolioSchemaLoader.INSTANCE;
     }
 
-        private static class LazyPostgresDBPortfolioSchemaLoader {
+    private static class LazyPostgresDBPortfolioSchemaLoader {
         private static final PostgreSQLTestContainer INSTANCE;
 
         static {
             INSTANCE = new PostgreSQLTestContainer(
                     Network.newNetwork(),
-                    "postgres",
-                    "postgres",
-                    "postgres",
+                    "test_user",
+                    "qwerty",
+                    "test_db",
                     "init_postgresql.sql");
             try {
                 INSTANCE.start();
